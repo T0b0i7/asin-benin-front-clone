@@ -1,0 +1,70 @@
+/*!
+ * Copyright OlaSoft Bénin - 2021
+ * https://www.olasoft.net
+ * @OlaSoftBenin
+ * contact@olasoft.net
+ */
+
+.fadein{transition: all 1s; opacity: 0;}
+.fadein.animate{opacity: 1}
+
+@keyframes popup{
+	from{transform: translateY(-50%); opacity: 0;}
+	to{transform: translateY(0%); opacity: 1;}
+}
+@keyframes show{
+	from{opacity: 0; transform: scale(.5)}
+	to{opacity: 1; transform: scale(1)}
+}
+@keyframes show-alt{
+	from{opacity: 0; transform: scale(.95)}
+	to{opacity: 1; transform: scale(1)}
+}
+@keyframes from-bottom{
+	from{opacity: 0; transform: translateY(5vw)}
+	to{opacity: 1; transform: translateY(0vw)}
+}
+@keyframes from-bottom-alt{
+	from{opacity: 0; transform: translateY(1vw)}
+	to{opacity: 1; transform: translateY(0vw)}
+}
+@keyframes from-right{
+	from{opacity: 0; transform: translateX(5vw)}
+	to{opacity: 1; transform: translateX(0vw)}
+}
+@keyframes from-left{
+	from{opacity: 0; transform: translateX(-5vw)}
+	to{opacity: 1; transform: translateX(0vw)}
+}
+@keyframes height{
+	from{opacity: 0; max-height: 0px;}
+	to{opacity: 1; max-height: 9000px}
+}
+.popup-alt:not(.opened),.anim-display:not(.opened),.anim-display:not(.active){display: none;}
+.popup-alt{animation: popup .5s}
+.anim-display.flex.opened{display: flex}
+.anim-display:not(.flex).opened,.anim-display:not(.flex).active{display: block}
+
+.anim-display.anim-popup{animation: popup .5s}
+.anim-display.anim-show{animation: show .5s}
+.anim-display.anim-show-alt{animation: show-alt .5s}
+.anim-display.anim-from-left{animation: from-left .5s}
+.anim-display.anim-from-right{animation: from-right .5s}
+.anim-display.anim-from-bottom{animation: from-bottom .5s}
+.anim-display.anim-from-bottom-alt{animation: from-bottom-alt .5s}
+.anim-display.anim-height{animation: height .5s}
+
+.anim-scroll{opacity: 0; transition: all 1.5s}
+.anim-scroll.anim-show{transform: scale(.95)}
+.anim-scroll.anim-show-alt{transform: scale(.5)}
+.anim-scroll.anim-from-bottom{transform: translateY(5vw)}
+.anim-scroll.anim-from-bottom-alt{transform: translateY(1vw)}
+.anim-scroll.anim-from-left{transform: translateX(-5vw)}
+.anim-scroll.anim-from-right{transform: translateX(25vw)}
+.anim-scroll.visible{opacity: 1; transform: translate(0vw, 0vw) scale(1)}
+
+.anim-display.transition-1s{animation-duration: 1s}
+.anim-display.transition-2s{animation-duration: 2s}
+.anim-display.transition-3s{animation-duration: 3s}
+.anim-display.transition-4s{animation-duration: 4s}
+.anim-display.transition-5s{animation-duration: 5s}

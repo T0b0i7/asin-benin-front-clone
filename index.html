@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agence des Systèmes d'Information et du Numérique - Bénin">
+  <title>ASIN Bénin - Agence des Systèmes d'Information et du Numérique</title>
+  <link rel="icon" href="public/assets/images/favicon.ico">
+  <link rel="stylesheet" href="src/assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="src/assets/css/os-style.css">
+  <link rel="stylesheet" href="src/assets/css/style.css">
+  <link rel="stylesheet" href="src/assets/css/os-anim.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --success: #1F4878;
+      --warning: #81B0B1;
+      --warning-alt: #DC9122;
+      --gray: #D9D9D9;
+      --font-name: montserrat;
+    }
+
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Light.ttf"); font-weight: 300; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Regular.ttf"); font-weight: 400; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Medium.ttf"); font-weight: 500; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-SemiBold.ttf"); font-weight: 600; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Bold.ttf"); font-weight: 700; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-ExtraBold.ttf"); font-weight: 900; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Light.ttf"); font-weight: 300; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Medium.ttf"); font-weight: 500; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Black.ttf"); font-weight: 900; }
+
+    * { font-family: var(--font-name), sans-serif; box-sizing: border-box; }
+
+    .header { height: 4.9479vw; min-height: 60px; box-shadow: 0 0 10px rgba(0,0,0,.1); z-index: 1030; }
+    .header .logo { height: 100%; padding: .6vw 0; display: flex; align-items: center; }
+    .header .logo img { height: 100%; max-height: 65px; width: auto; }
+    .nav-link { color: var(--success) !important; font-weight: 600; font-size: .9vw; padding: .5vw 1.2vw !important; white-space: nowrap; }
+    .nav-link:hover { color: var(--success) !important; }
+    .dropdown-toggle::after { display: inline-block; margin-left: .4em; vertical-align: middle; content: ""; border-top: .3em solid; border-right: .3em solid transparent; border-bottom: 0; border-left: .3em solid transparent; }
+    .dropdown-menu { border: none; box-shadow: 0 5px 15px rgba(0,0,0,.15); border-radius: 0; padding: .8vw 0; min-width: 16vw; display: block; visibility: hidden; opacity: 0; transition: opacity .2s ease, visibility .2s ease; }
+    .nav-item .dropdown-menu.show { visibility: visible; opacity: 1; }
+    .dropdown-item { font-size: .85vw; color: var(--success); padding: .5vw 1.5vw; }
+    .dropdown-item:hover { background: #f0f4f8; color: var(--success); }
+    .search-btn { background: var(--success); color: #fff; padding: .6vw 2vw; border-radius: 2vw; cursor: pointer; font-size: .85vw; }
+    .search-btn i { margin-right: .5vw; }
+    .social-icon { color: var(--success); font-size: 1.1vw; margin: 0 .6vw; }
+
+    .hero { background: linear-gradient(279.18deg, #1F4878 18.73%, #81B0B1 105.17%); min-height: 100vh; padding: 8vw 6.97916vw 4vw; display: flex; flex-direction: column; justify-content: center; }
+    .hero h1 { font-size: 2.6vw; line-height: 1.2; color: #fff; text-align: center; max-width: 65%; margin: 0 auto 3vw; font-weight: 900; font-family: aquawax, sans-serif; }
+
+    .pole-card { position: relative; border-radius: 1.2vw; overflow: hidden; cursor: pointer; }
+    .pole-card img { width: 100%; height: 22vw; object-fit: cover; }
+    .pole-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2vw 1.5vw 1.5vw; background: linear-gradient(1.14deg, #FFFFFF 50.92%, rgba(203,207,210,0) 403.04%); backdrop-filter: blur(6.5px); }
+    .pole-overlay h3 { font-size: 1.4vw; color: var(--success); font-weight: 700; line-height: 1.3; }
+    .pole-overlay .pole-btn { font-size: .75vw; font-weight: 900; color: var(--success); text-transform: uppercase; text-decoration: none; display: inline-block; margin-top: .5vw; }
+
+    .section-title { display: flex; align-items: center; gap: 1vw; }
+    .section-title h2 { font-family: aquawax, sans-serif; font-weight: 900; font-size: 3.02vw; color: var(--success); }
+    .section-title h2 span:last-child { color: var(--warning); }
+    .btn-outline-warning { border: none; background: var(--warning); color: #fff; font-weight: 900; text-transform: uppercase; font-size: .9vw; padding: .7vw 2.5vw; border-radius: .3vw; text-decoration: none; }
+    .btn-outline-warning:hover { background: var(--warning); color: #fff; }
+
+    .article-card { margin-bottom: 3vw; }
+    .article-card figure { min-height: 16.4583vw; height: 16.4583vw; overflow: hidden; border-radius: .5vw; }
+    .article-card figure img { width: 100%; height: 100%; object-fit: cover; }
+    .article-card .date { font-size: .8vw; color: var(--warning); text-transform: uppercase; font-weight: 500; display: flex; align-items: center; gap: .5vw; }
+    .article-card .date .dot { width: .5vw; height: .5vw; background: var(--warning); border-radius: 50%; display: inline-block; }
+    .article-card h3 { font-size: 1.6vw; color: var(--success); font-weight: 700; line-height: 1.3; }
+    .article-card h3 a { color: inherit; text-decoration: none; }
+    .article-card p { font-size: 1vw; color: var(--success); font-weight: 500; }
+    .article-card .read-more { color: var(--warning); font-weight: 900; text-transform: uppercase; font-size: .9vw; text-decoration: none; }
+
+    .values { position: relative; }
+    .values-bg { position: absolute; inset: 0; }
+    .values-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .values-bg .overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5)); }
+    .values .section-title h2 { color: #fff; }
+    .values-subtitle { color: #fff; font-weight: 600; text-align: center; max-width: 50%; margin: 0 auto 2vw; font-size: 1.2vw; }
+
+    .value-card { background: var(--warning); border-radius: .5vw; padding: 2vw 2vw 3vw; box-shadow: 0 0 10px rgba(0,0,0,.1); }
+    .value-card h3 { background: #fff; padding: .8vw 1.5vw; font-size: 1.3vw; color: var(--success); font-weight: 700; display: inline-block; margin-bottom: 1.5vw; }
+    .value-card p { color: var(--success); font-weight: 600; font-size: 1.1vw; line-height: 1.3; }
+
+    .projects { background: var(--warning); }
+    .projects .section-title h2 span:first-child { color: var(--success); }
+    .projects .section-title h2 span:last-child { color: #fff; }
+    .project-card { margin-bottom: 2vw; }
+    .project-card figure { min-height: 12vw; height: 12vw; border-radius: .5vw; overflow: hidden; background: rgba(0,0,0,.15); }
+    .project-card figure img { width: 100%; height: 100%; object-fit: cover; }
+    .project-card .status { display: flex; align-items: center; gap: .8vw; color: #fff; font-size: .9vw; font-weight: 500; text-transform: uppercase; }
+    .project-card .status svg { width: 1.5vw; height: 1.5vw; }
+    .project-card h3 { color: #fff; font-weight: 700; font-size: 1.8vw; line-height: 1.3; }
+    .project-card h3 a { color: inherit; text-decoration: none; }
+    .project-card .read-more { color: #fff; font-weight: 900; text-transform: uppercase; font-size: .9vw; text-decoration: none; }
+    .project-divider { height: 1px; background: #fff; margin: 1vw 0 2vw; }
+
+    .lien-utile { height: 32.1354167vw; min-height: 32.1354167vw; position: relative; }
+    .lien-utile-bg { position: absolute; inset: 0; }
+    .lien-utile-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .lien-utile-bg .overlay { position: absolute; inset: 0; background: var(--success); opacity: .85; }
+    .lien-utile .vertical-title { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); color: #fff; font-family: aquawax, sans-serif; font-weight: 900; font-size: 2.5vw; margin-right: 2vw; }
+    .lien-utile .gouv-box { width: 32.1354167vw; height: 32.1354167vw; min-width: 32.1354167vw; }
+    .lien-utile .gouv-box img { width: 70%; }
+    .lien-utile .small-box { height: 16.06770835vw; display: flex; align-items: center; justify-content: center; }
+    .lien-utile .small-box img { max-width: 60%; max-height: 60%; }
+
+    .newsletter-section { position: relative; }
+    .newsletter-bg { position: absolute; inset: 0; }
+    .newsletter-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .newsletter-mask-el { position: absolute; inset: 0; background: linear-gradient(99.03deg, #81B0B1 66.62%, rgba(129,176,177,0) 159.36%); opacity: .92; }
+    .newsletter-section h2 { color: #fff; font-family: aquawax, sans-serif; font-weight: 900; font-size: 2.5vw; }
+    .newsletter-section p { color: #fff; font-size: 1.2vw; font-weight: 600; }
+    .newsletter-section input { border: none; border-radius: 0; padding: .8vw 1.5vw; font-size: .9vw; color: var(--success); }
+    .newsletter-section input::placeholder { color: var(--success); }
+    .newsletter-section button { background: var(--success); color: #fff; border: none; padding: .8vw 2vw; font-weight: 700; text-transform: uppercase; font-size: .9vw; cursor: pointer; }
+
+    .footer-logo { padding: 2vw 6.97916vw; display: flex; justify-content: center; }
+    .footer-logo img { max-height: 5vw; }
+    .footer-bottom { border-top: 1px solid var(--gray); padding: 1.5vw 6.97916vw; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { color: var(--success); font-size: .9vw; margin: 0; }
+    .footer-bottom a { color: var(--success); text-decoration: none; }
+
+    .flag-bar { height: .63vw; min-height: 6px; display: flex; }
+    .flag-bar span { flex: 1; }
+    .flag-bar .green { background: #108757; }
+    .flag-bar .yellow { background: #FFBE00; }
+    .flag-bar .red { background: #EB0000; }
+
+    @media (max-width: 768px) {
+      .header { height: 60px; }
+      .nav-link { font-size: 14px; }
+      .social-icon, .search-btn i, .search-btn span { display: none; }
+      .hero h1 { font-size: 6vw; max-width: 90%; }
+      .pole-card img { height: 50vw; }
+      .pole-overlay h3 { font-size: 3.5vw; }
+      .pole-overlay .pole-btn { font-size: 2.2vw; }
+      .section-title h2 { font-size: 6vw; }
+      .btn-outline-warning { font-size: 2.5vw; padding: 2vw 4vw; }
+      .article-card figure { min-height: 40vw; height: 40vw; }
+      .article-card .date { font-size: 2.5vw; }
+      .article-card h3 { font-size: 4vw; }
+      .values-subtitle { max-width: 90%; font-size: 3.5vw; }
+      .value-card h3 { font-size: 3.5vw; }
+      .value-card p { font-size: 3vw; }
+      .project-card h3 { font-size: 4vw; }
+      .lien-utile { height: auto; min-height: auto; }
+      .lien-utile .gouv-box { width: 100%; height: 50vw; min-width: auto; }
+      .lien-utile .small-box { height: 30vw; }
+      .vertical-title { font-size: 5vw !important; }
+      .newsletter-section h2 { font-size: 6vw; }
+      .newsletter-section p { font-size: 3.5vw; }
+      .newsletter-section input { font-size: 3vw; padding: 2vw 3vw; }
+      .newsletter-section button { font-size: 3vw; padding: 2vw 4vw; }
+      .footer-logo img { max-height: 10vw; }
+      .footer-bottom { flex-direction: column; gap: 2vw; }
+      .footer-bottom p { font-size: 2.5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white header">
+    <div class="container-fluid" style="padding: 0 6.97916vw;">
+      <a class="navbar-brand logo py-0" href="#">
+        <img src="public/assets/images/027610556098001690960111.png" alt="ASIN Bénin">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">ASIN</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="qui-sommes-nous.html">Présentation</a></li>
+              <li><a class="dropdown-item" href="mission-et-attributions.html">Mission et Attributions</a></li>
+              <li><a class="dropdown-item" href="mot-directeur.html">Mot du directeur général</a></li>
+              <li><a class="dropdown-item" href="gouvernance.html">Gouvernance et Organisation</a></li>
+              <li><a class="dropdown-item" href="organigramme.html">Organigramme</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="projets.html">Projets</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Publications</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="actualites.html">Actualités</a></li>
+              <li><a class="dropdown-item" href="documents.html">Documents</a></li>
+              <li><a class="dropdown-item" href="videos.html">Vidéos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Opportunités</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="emplois.html">Emplois</a></li>
+              <li><a class="dropdown-item" href="appels-offres.html">Marchés publics</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="evenements.html">Evènements</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item d-flex align-items-center ms-3 gap-2">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-flickr"></i></a>
+            <div class="search-btn ms-2"><i class="fas fa-search"></i><span>Recherche</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="padding-top: 6vw;">
+    <h1>Transformer le quotidien des béninois par le numérique</h1>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="pole-card">
+          <img src="public/assets/images/pole1.jpg" alt="Pôle Infrastructures Numériques">
+          <div class="pole-overlay">
+            <h3>Pôle Infrastructures Numériques</h3>
+            <a href="#" class="pole-btn">+ EN SAVOIR PLUS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="pole-card">
+          <img src="public/assets/images/pole2.jpg" alt="Pôle Sécurité Numérique">
+          <div class="pole-overlay">
+            <h3>Pôle Sécurité Numérique</h3>
+            <a href="#" class="pole-btn">+ EN SAVOIR PLUS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="pole-card">
+          <img src="public/assets/images/pole3.jpg" alt="Pôle Système d'Information">
+          <div class="pole-overlay">
+            <h3>Pôle Système d'Information et Digitalisation</h3>
+            <a href="#" class="pole-btn">+ EN SAVOIR PLUS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Actualités -->
+  <section class="bg-white" style="padding: 5vw 6.97916vw;">
+    <div class="d-flex align-items-center justify-content-between mb-5">
+      <div class="section-title">
+        <img src="public/assets/images/title-icon.png" alt="" style="height: 4vw;">
+        <h2><span>Nos dernières</span> <span>actualités</span></h2>
+      </div>
+      <a href="#" class="btn-outline-warning">Toutes nos actus</a>
+    </div>
+
+    <div class="row">
+      <div class="col-12 article-card">
+        <div class="row align-items-center">
+          <div class="col-lg-4">
+            <figure><img src="public/assets/images/963500651687001779994117.png" alt=""></figure>
+          </div>
+          <div class="col-lg-8 ps-lg-4">
+            <div class="d-flex gap-3 mb-3">
+              <span class="date"><span class="dot"></span>28 mai 2026</span>
+              <span class="date"><span class="dot"></span>Actualités</span>
+            </div>
+            <h3><a href="#">Press release : Benin Joins the Global 50-in-5 Digital Public Infrastructure Campaign</a></h3>
+            <p class="mb-3">Benin Joins the Global 50-in-5 Digital Public Infrastructure Campaign</p>
+            <a href="#" class="read-more">+ Lire l'article</a>
+          </div>
+        </div>
+        <hr class="mt-4" style="background: var(--success); height: 2px; opacity: 1;">
+      </div>
+
+      <div class="col-12 article-card">
+        <div class="row align-items-center">
+          <div class="col-lg-4">
+            <figure><img src="public/assets/images/921850591502001777464842.jpg" alt=""></figure>
+          </div>
+          <div class="col-lg-8 ps-lg-4">
+            <div class="d-flex gap-3 mb-3">
+              <span class="date"><span class="dot"></span>29 avril 2026</span>
+              <span class="date"><span class="dot"></span>Actualités</span>
+            </div>
+            <h3><a href="#">DevLab 2025 : les lauréats en immersion dans les écosystèmes numériques de Bangalore et de Kigali</a></h3>
+            <a href="#" class="read-more">+ Lire l'article</a>
+          </div>
+        </div>
+        <hr class="mt-4" style="background: var(--success); height: 2px; opacity: 1;">
+      </div>
+
+      <div class="col-12 article-card">
+        <div class="row align-items-center">
+          <div class="col-lg-4">
+            <figure><img src="public/assets/images/061370222808001776695241.jpg" alt=""></figure>
+          </div>
+          <div class="col-lg-8 ps-lg-4">
+            <div class="d-flex gap-3 mb-3">
+              <span class="date"><span class="dot"></span>20 avril 2026</span>
+              <span class="date"><span class="dot"></span>Actualités</span>
+            </div>
+            <h3><a href="#">Coopération numérique : l'ASIN à Bruxelles pour une visite d'étude de haut niveau</a></h3>
+            <p class="mb-3">L'Agence des Systèmes d'Information et du Numérique (ASIN) a pris part du 12 au 17 avril 2026 à Bruxelles, à une visite d'étude de haut niveau organisée par le CAITA, à l'invitation de Smart Africa et de la Commission européenne.</p>
+            <a href="#" class="read-more">+ Lire l'article</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos valeurs -->
+  <section class="values" style="padding: 5vw 6.97916vw;">
+    <div class="values-bg">
+      <img src="public/assets/images/bg-pole.jpg" alt="">
+      <div class="overlay"></div>
+    </div>
+    <div class="position-relative">
+      <div class="section-title justify-content-center mb-4">
+        <img src="public/assets/images/title-icon.png" alt="" style="height: 4vw; filter: brightness(0) invert(1);">
+        <h2 style="color: #fff;">Nos valeurs</h2>
+      </div>
+      <p class="values-subtitle">L'Agence des Systèmes d'Information et du Numérique a pour mission la mise en œuvre opérationnelle des projets relatifs au secteur du numérique.</p>
+      <div class="row g-4 mt-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <h3>Confiance</h3>
+            <p>Être un partenaire respectueux des engagements</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <h3>Accessibilité</h3>
+            <p>Concevoir des dispositifs numériques afin que chaque utilisateur puisse comprendre, naviguer et interagir aisément.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <h3>Résilience</h3>
+            <p>S'adapter aux perturbations et savoir les surmonter</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <h3>Écoute</h3>
+            <p>Se rendre disponible, être attentif et prendre du temps pour écouter afin d'apporter les solutions les plus performantes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos projets -->
+  <section class="projects" style="padding: 5vw 6.97916vw;">
+    <div class="d-flex align-items-center justify-content-between mb-5">
+      <div class="section-title">
+        <img src="public/assets/images/title-icon.png" alt="" style="height: 4vw; filter: brightness(0) invert(1);">
+        <h2><span>Nos</span> <span>projets</span></h2>
+      </div>
+      <a href="#" class="btn btn-success text-white fw-bold text-uppercase px-4 py-2" style="background: var(--success); border: none; font-size: .9vw;">Tous nos projets</a>
+    </div>
+
+    <div class="row">
+      <div class="col-12 project-card">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <figure><img src="public/assets/images/bg-pole.jpg" alt=""></figure>
+          </div>
+          <div class="col-lg-6 ps-lg-4">
+            <div class="status mb-3">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22.5047 7.31153L14.8266 15.074L8.73282 8.98028L14.1609 3.55684L13.5047 2.94325C13.1063 2.50403 12.3938 2.50403 11.9531 2.94325L7.87969 6.93653C7.48125 7.41465 6.76875 7.41465 6.32813 6.93653C5.89219 6.53809 5.89219 5.82559 6.32813 5.38496L10.3641 1.35231C11.6813 0.0343242 13.8188 0.0343242 15.1359 1.35231L15.75 1.9659L16.4531 1.26137C18.1359 -0.420457 20.8641 -0.420457 22.5047 1.26137C24.2297 2.94325 24.2297 5.6709 22.5047 7.31153ZM10.7578 19.1428C8.50782 21.3928 5.63907 22.9256 2.51719 23.549L1.34579 23.7834C0.976879 23.8584 0.595317 23.7412 0.329536 23.4365C0.0635669 23.2115 -0.0518862 22.8318 0.0218481 22.4615L0.256176 21.2896C0.880317 18.1678 2.415 15.299 4.66594 13.049L7.67344 10.0397L13.7672 16.1334L10.7578 19.1428Z" fill="#fff"/></svg>
+              <span>En cours d'exécution</span>
+            </div>
+            <h3><a href="#">SMART GOUV (phase 2)</a></h3>
+            <a href="#" class="read-more">+ Lire le projet</a>
+          </div>
+        </div>
+        <div class="project-divider"></div>
+      </div>
+
+      <div class="col-12 project-card">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <figure><img src="public/assets/images/bg-pole.jpg" alt=""></figure>
+          </div>
+          <div class="col-lg-6 ps-lg-4">
+            <div class="status mb-3">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22.5047 7.31153L14.8266 15.074L8.73282 8.98028L14.1609 3.55684L13.5047 2.94325C13.1063 2.50403 12.3938 2.50403 11.9531 2.94325L7.87969 6.93653C7.48125 7.41465 6.76875 7.41465 6.32813 6.93653C5.89219 6.53809 5.89219 5.82559 6.32813 5.38496L10.3641 1.35231C11.6813 0.0343242 13.8188 0.0343242 15.1359 1.35231L15.75 1.9659L16.4531 1.26137C18.1359 -0.420457 20.8641 -0.420457 22.5047 1.26137C24.2297 2.94325 24.2297 5.6709 22.5047 7.31153ZM10.7578 19.1428C8.50782 21.3928 5.63907 22.9256 2.51719 23.549L1.34579 23.7834C0.976879 23.8584 0.595317 23.7412 0.329536 23.4365C0.0635669 23.2115 -0.0518862 22.8318 0.0218481 22.4615L0.256176 21.2896C0.880317 18.1678 2.415 15.299 4.66594 13.049L7.67344 10.0397L13.7672 16.1334L10.7578 19.1428Z" fill="#fff"/></svg>
+              <span>En cours d'exécution</span>
+            </div>
+            <h3><a href="#">Déploiement de l'internet haut et très haut débit sur l'ensemble du territoire national (Phase 2)</a></h3>
+            <a href="#" class="read-more">+ Lire le projet</a>
+          </div>
+        </div>
+        <div class="project-divider"></div>
+      </div>
+
+      <div class="col-12 project-card">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <figure><img src="public/assets/images/bg-pole.jpg" alt=""></figure>
+          </div>
+          <div class="col-lg-6 ps-lg-4">
+            <div class="status mb-3">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22.5047 7.31153L14.8266 15.074L8.73282 8.98028L14.1609 3.55684L13.5047 2.94325C13.1063 2.50403 12.3938 2.50403 11.9531 2.94325L7.87969 6.93653C7.48125 7.41465 6.76875 7.41465 6.32813 6.93653C5.89219 6.53809 5.89219 5.82559 6.32813 5.38496L10.3641 1.35231C11.6813 0.0343242 13.8188 0.0343242 15.1359 1.35231L15.75 1.9659L16.4531 1.26137C18.1359 -0.420457 20.8641 -0.420457 22.5047 1.26137C24.2297 2.94325 24.2297 5.6709 22.5047 7.31153ZM10.7578 19.1428C8.50782 21.3928 5.63907 22.9256 2.51719 23.549L1.34579 23.7834C0.976879 23.8584 0.595317 23.7412 0.329536 23.4365C0.0635669 23.2115 -0.0518862 22.8318 0.0218481 22.4615L0.256176 21.2896C0.880317 18.1678 2.415 15.299 4.66594 13.049L7.67344 10.0397L13.7672 16.1334L10.7578 19.1428Z" fill="#fff"/></svg>
+              <span>En cours d'exécution</span>
+            </div>
+            <h3><a href="#">Transformation numérique des collectivités locales</a></h3>
+            <a href="#" class="read-more">+ Lire le projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Liens utiles -->
+    <div class="lien-utile">
+      <div class="lien-utile-bg">
+        <img src="public/assets/images/utile.jpg" alt="">
+        <div class="overlay"></div>
+      </div>
+      <div class="position-relative h-100 d-flex align-items-center" style="padding: 3vw 6.97916vw;">
+        <div class="vertical-title">Liens utiles</div>
+        <div class="d-flex w-100 gap-0">
+          <a href="https://www.gouv.bj/" target="_blank" class="gouv-box d-flex align-items-center justify-content-center" style="background: rgba(255,255,255,.85);">
+            <img src="public/assets/images/gouv.png" alt="Gouvernement du Bénin">
+          </a>
+          <div class="d-flex flex-column flex-grow-1">
+            <div class="d-flex flex-grow-1">
+              <a href="https://numerique.gouv.bj/" target="_blank" class="small-box flex-grow-1" style="background: var(--warning);">
+                <img src="public/assets/images/numerique.png" alt="Numérique">
+              </a>
+              <a href="https://arcep.bj/" target="_blank" class="small-box" style="background: #1A588F; width: 16.06770835vw;">
+                <img src="public/assets/images/arcep.png" alt="ARCEP" style="filter: brightness(0) invert(1);">
+              </a>
+            </div>
+            <div class="d-flex flex-grow-1">
+              <a href="https://finances.gouv.bj/" target="_blank" class="small-box flex-grow-1" style="background: #1A588F;">
+                <img src="public/assets/images/finance.png" alt="Finances" style="filter: brightness(0) invert(1);">
+              </a>
+              <a href="https://apdp.bj/" target="_blank" class="small-box bg-white" style="width: 16.06770835vw;">
+                <img src="public/assets/images/apdp.png" alt="APDP">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-section" style="padding-left: calc(6.97916vw + 5vw);">
+      <div class="newsletter-bg">
+        <img src="public/assets/images/newsletter.jpg" alt="">
+        <div class="newsletter-mask-el"></div>
+      </div>
+      <div class="position-relative" style="padding: 4vw 0;">
+        <h2>La newsletter</h2>
+        <p>Abonnez-vous à notre newsletter afin de vous tenir au courant</p>
+        <form class="d-flex align-items-center gap-3 flex-wrap">
+          <input type="text" placeholder="Nom" class="form-control" style="max-width: 15vw;">
+          <input type="email" placeholder="Adresse email" class="form-control" style="max-width: 20vw;" required>
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Logo + Copyright -->
+    <div class="footer-logo">
+      <img src="public/assets/images/027610556098001690960111.png" alt="ASIN Bénin">
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Agence des Systèmes d'Information et du Numérique - 2023</p>
+      <p><a href="#">Mentions légales et gestions des cookies</a></p>
+    </div>
+
+    <!-- Flag -->
+    <div class="flag-bar">
+      <span class="green"></span>
+      <span class="yellow"></span>
+      <span class="red"></span>
+    </div>
+  </footer>
+
+  <script src="src/assets/vendor/bootstrap.bundle.min.js"></script>
+  <script>
+    (function() {
+      var nav = document.querySelector('.navbar');
+      if (!nav) return;
+      var items = nav.querySelectorAll('.nav-item.dropdown');
+      items.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          var menu = this.querySelector('.dropdown-menu');
+          if (menu) menu.classList.add('show');
+        });
+        item.addEventListener('mouseleave', function() {
+          var menu = this.querySelector('.dropdown-menu');
+          if (menu) menu.classList.remove('show');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

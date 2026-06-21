@@ -1,0 +1,54 @@
+:root{
+    --blocked-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/close.svg");
+    --pending-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/hourglass-start.svg");
+    --inprogress-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/hourglass-progress.svg");
+    --available-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/hourglass-available.svg");
+    --reviewed-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/hourglass-reviewed.svg");
+    --commented-icon: url("urn:scrapbook:download:error:https://asin.bj/icons/hourglass-progress.svg");
+    --completed-icon: var(--enabled-icon);
+
+    --arrow-icon: url("0ccd46d84995b594cd316e524e2973f2c0f1d57c.png");
+    --previous-icon: url("d91bb92be0e94911076b1732e2b5db598d531564.svg");
+    --enabled-icon: url("a40ef49c0aa4e08a4190edb71414713e88a0c84b.png");
+    --not-enabled-icon: none;
+    --selected-icon: url("ee839ce7fb09b830de3f4a5dbe9113b0dc916d95.png");
+    --not-selected-icon: url("c412e33d2cd949ba10ba40e89e5408d7730a3187.png");
+    --checked-icon:  url("4ccfabe4d951dbc17aee557019824563abc85637.png");
+    --not-checked-icon: url("e0d079af16a34582fae85f9a85f60451925a7105.png");
+    --close-notice-icon: url("5625a83211682fad15462c662d05b5094607b7c0.png");
+
+    --icon-facebook: url("d2eda8dd86c17dcbcdd17612b2b6d806520e62c8.svg");
+    --icon-facebook-f: url("588c86d056159453c9db220bc468a24fa8aa58d8.svg");
+    --icon-twitter: url("3bb7e7b45185b084546b18e059a11001ccee2ff1.svg");
+    --icon-flickr: url("c9c55229b790a2bd7efecb089c186e5ca9f2bc38.svg");
+    --icon-youtube: url("be171634b07bc2489b703c314df0685fe20b4c0c.svg");
+    --icon-youtube-old: url("d229c341dcd1d5f064cd49edc7a394458f9bddf4.svg");
+    --icon-soundcloud: url("63debf4bf3d1ea2d6e8238077b19367ca9b53a1d.svg");
+    --icon-instagram: url("9a16bf62c76b4548761571edb41a82c2ea70f882.svg");
+    --icon-linkedin: url("7c9e343af3206533e5ee7837f6f3d8bb36b65034.svg");
+    --icon-search: url("urn:scrapbook:download:error:https://asin.bj/icons/search.svg");
+    --icon-whatsapp: url("urn:scrapbook:download:error:https://asin.bj/icons/whatsapp.svg");
+    --icon-phone: url("urn:scrapbook:download:error:https://asin.bj/icons/call.svg");
+    --icon-quote: url("urn:scrapbook:download:error:https://asin.bj/icons/quote.svg");
+    --icon-videos: url("urn:scrapbook:download:error:https://asin.bj/icons/videos.png");
+    --icon-album: url("urn:scrapbook:download:error:https://asin.bj/icons/images.png");
+    --icon-menu: url("f7c1badc8884616a536f5bd48dce2442272e0ed8.svg");
+    --icon-link: url("link.png");
+    --icon-close: url("924776f01a60646b78dccff1e9e41dd65f32c507.png");
+    --icon-send: url("dbeb9098c593244cda098794de5aa7b5aabc4c63.png");
+    --icon-mail: url("d2a3a9d5fbfbaa31eb062d81848a0f06ad5ef769.svg");
+    --icon-mail-o: url("eeda8cb3417fbe0e5c1d3a0721fbc66c2ce12c3b.svg");
+
+    --icon-arrow: url("urn:scrapbook:download:error:https://asin.bj/icons/right-arrow.svg");
+    --icon-chevron: url("urn:scrapbook:download:error:https://asin.bj/icons/next.svg");
+    --icon-map: url("urn:scrapbook:download:error:https://asin.bj/icons/location.svg");
+    --icon-map-alt: url("urn:scrapbook:download:error:https://asin.bj/icons/map.svg");
+    --icon-globe: url("urn:scrapbook:download:error:https://asin.bj/icons/internet.svg");
+    --icon-scroll: url("urn:scrapbook:download:error:https://asin.bj/icons/scroll.svg");
+    --icon-document: url("urn:scrapbook:download:error:https://asin.bj/icons/document.svg");
+    --icon-image: url("urn:scrapbook:download:error:https://asin.bj/icons/image.svg");
+    --icon-play: url("urn:scrapbook:download:error:https://asin.bj/icons/play.svg");
+    --icon-video: url("urn:scrapbook:download:error:https://asin.bj/icons/play.svg");
+    --icon-download: url("urn:scrapbook:download:error:https://asin.bj/icons/download.svg");
+    --icon-eye: url("urn:scrapbook:download:error:https://asin.bj/icons/eye.svg");
+}

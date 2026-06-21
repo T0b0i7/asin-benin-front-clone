@@ -1,0 +1,22 @@
+
+
+@font-face {
+    font-family: aquawax;
+    src: url("Aquawax-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: aquawax;
+    src: url("Aquawax-Medium.ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: aquawax;
+    src: url("Aquawax-Black.ttf");
+    font-weight: 900;
+    font-style: normal;
+}

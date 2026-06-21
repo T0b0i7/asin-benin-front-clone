@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Offres d'emploi - ASIN Bénin">
+  <title>Offres d'emploi - ASIN Bénin</title>
+  <link rel="icon" href="public/assets/images/favicon.ico">
+  <link rel="stylesheet" href="src/assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="src/assets/css/os-style.css">
+  <link rel="stylesheet" href="src/assets/css/style.css">
+  <link rel="stylesheet" href="src/assets/css/os-anim.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --success: #1F4878;
+      --warning: #81B0B1;
+      --warning-alt: #DC9122;
+      --gray: #D9D9D9;
+      --font-name: montserrat;
+    }
+
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Light.ttf"); font-weight: 300; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Regular.ttf"); font-weight: 400; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Medium.ttf"); font-weight: 500; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-SemiBold.ttf"); font-weight: 600; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-Bold.ttf"); font-weight: 700; }
+    @font-face { font-family: montserrat; src: url("public/assets/fonts/Montserrat-ExtraBold.ttf"); font-weight: 900; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Light.ttf"); font-weight: 300; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Medium.ttf"); font-weight: 500; }
+    @font-face { font-family: aquawax; src: url("public/assets/fonts/Aquawax-Black.ttf"); font-weight: 900; }
+
+    * { font-family: var(--font-name), sans-serif; box-sizing: border-box; }
+
+    .header { height: 4.9479vw; min-height: 60px; box-shadow: 0 0 10px rgba(0,0,0,.1); z-index: 1030; }
+    .header .logo { height: 100%; padding: .6vw 0; display: flex; align-items: center; }
+    .header .logo img { height: 100%; max-height: 65px; width: auto; }
+    .nav-link { color: var(--success) !important; font-weight: 600; font-size: .9vw; padding: .5vw 1.2vw !important; white-space: nowrap; }
+    .nav-link:hover { color: var(--success) !important; }
+    .dropdown-toggle::after { display: inline-block; margin-left: .4em; vertical-align: middle; content: ""; border-top: .3em solid; border-right: .3em solid transparent; border-bottom: 0; border-left: .3em solid transparent; }
+    .dropdown-menu { border: none; box-shadow: 0 5px 15px rgba(0,0,0,.15); border-radius: 0; padding: .8vw 0; min-width: 16vw; display: block; visibility: hidden; opacity: 0; transition: opacity .2s ease, visibility .2s ease; }
+    .nav-item .dropdown-menu.show { visibility: visible; opacity: 1; }
+    .dropdown-item { font-size: .85vw; color: var(--success); padding: .5vw 1.5vw; }
+    .dropdown-item:hover { background: #f0f4f8; color: var(--success); }
+    .search-btn { background: var(--success); color: #fff; padding: .6vw 2vw; border-radius: 2vw; cursor: pointer; font-size: .85vw; }
+    .search-btn i { margin-right: .5vw; }
+    .social-icon { color: var(--success); font-size: 1.1vw; margin: 0 .6vw; }
+
+    .section-title { display: flex; align-items: center; gap: 1vw; }
+    .section-title h2 { font-family: aquawax, sans-serif; font-weight: 900; font-size: 3.02vw; color: var(--success); }
+    .section-title h2 span:last-child { color: var(--warning); }
+
+    .emploi-hero { background: linear-gradient(279.18deg, #1F4878 18.73%, #81B0B1 105.17%); padding: 8vw 6.97916vw 4vw; min-height: 20vw; display: flex; align-items: center; }
+    .emploi-hero .page-title { display: flex; align-items: center; gap: 1.5vw; }
+    .emploi-hero .page-title svg { width: 4vw; height: 4vw; }
+    .emploi-hero .page-title h1 { font-family: aquawax, sans-serif; font-weight: 900; font-size: 3.5vw; color: #fff; margin: 0; }
+
+    .emploi-card { background: #fff; border-radius: .8vw; box-shadow: 0 2px 15px rgba(0,0,0,.08); padding: 2vw 2.5vw; margin-bottom: 2vw; border-left: .5vw solid var(--warning); transition: box-shadow .3s ease; }
+    .emploi-card:hover { box-shadow: 0 5px 25px rgba(0,0,0,.15); }
+    .emploi-card .badge-en-cours { display: inline-block; background: var(--warning); color: #fff; font-weight: 700; font-size: .75vw; text-transform: uppercase; padding: .3vw 1vw; border-radius: .2vw; letter-spacing: .05em; }
+    .emploi-card .emploi-meta { display: flex; align-items: center; gap: .3vw; font-size: .85vw; color: var(--success); font-weight: 600; margin: 1vw 0 .5vw; }
+    .emploi-card .emploi-meta .separator { color: var(--warning); font-weight: 900; }
+    .emploi-card h3 { font-size: 1.5vw; color: var(--success); font-weight: 700; line-height: 1.3; margin-bottom: .8vw; }
+    .emploi-card .read-more { color: var(--warning); font-weight: 900; text-transform: uppercase; font-size: .9vw; text-decoration: none; display: inline-flex; align-items: center; gap: .5vw; }
+    .emploi-card .read-more:hover { text-decoration: underline; }
+
+    .btn-outline-warning { border: none; background: var(--warning); color: #fff; font-weight: 900; text-transform: uppercase; font-size: .9vw; padding: .7vw 2.5vw; border-radius: .3vw; text-decoration: none; }
+    .btn-outline-warning:hover { background: var(--warning); color: #fff; }
+
+    .lien-utile { height: 32.1354167vw; min-height: 32.1354167vw; position: relative; }
+    .lien-utile-bg { position: absolute; inset: 0; }
+    .lien-utile-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .lien-utile-bg .overlay { position: absolute; inset: 0; background: var(--success); opacity: .85; }
+    .lien-utile .vertical-title { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); color: #fff; font-family: aquawax, sans-serif; font-weight: 900; font-size: 2.5vw; margin-right: 2vw; }
+    .lien-utile .gouv-box { width: 32.1354167vw; height: 32.1354167vw; min-width: 32.1354167vw; }
+    .lien-utile .gouv-box img { width: 70%; }
+    .lien-utile .small-box { height: 16.06770835vw; display: flex; align-items: center; justify-content: center; }
+    .lien-utile .small-box img { max-width: 60%; max-height: 60%; }
+
+    .newsletter-section { position: relative; }
+    .newsletter-bg { position: absolute; inset: 0; }
+    .newsletter-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .newsletter-mask-el { position: absolute; inset: 0; background: linear-gradient(99.03deg, #81B0B1 66.62%, rgba(129,176,177,0) 159.36%); opacity: .92; }
+    .newsletter-section h2 { color: #fff; font-family: aquawax, sans-serif; font-weight: 900; font-size: 2.5vw; }
+    .newsletter-section p { color: #fff; font-size: 1.2vw; font-weight: 600; }
+    .newsletter-section input { border: none; border-radius: 0; padding: .8vw 1.5vw; font-size: .9vw; color: var(--success); }
+    .newsletter-section input::placeholder { color: var(--success); }
+    .newsletter-section button { background: var(--success); color: #fff; border: none; padding: .8vw 2vw; font-weight: 700; text-transform: uppercase; font-size: .9vw; cursor: pointer; }
+
+    .footer-logo { padding: 2vw 6.97916vw; display: flex; justify-content: center; }
+    .footer-logo img { max-height: 5vw; }
+    .footer-bottom { border-top: 1px solid var(--gray); padding: 1.5vw 6.97916vw; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { color: var(--success); font-size: .9vw; margin: 0; }
+    .footer-bottom a { color: var(--success); text-decoration: none; }
+
+    .flag-bar { height: .63vw; min-height: 6px; display: flex; }
+    .flag-bar span { flex: 1; }
+    .flag-bar .green { background: #108757; }
+    .flag-bar .yellow { background: #FFBE00; }
+    .flag-bar .red { background: #EB0000; }
+
+    @media (max-width: 768px) {
+      .header { height: 60px; }
+      .nav-link { font-size: 14px; }
+      .social-icon, .search-btn i, .search-btn span { display: none; }
+      .emploi-hero { padding: 20vw 5vw 10vw; min-height: auto; }
+      .emploi-hero .page-title svg { width: 10vw; height: 10vw; }
+      .emploi-hero .page-title h1 { font-size: 7vw; }
+      .section-title h2 { font-size: 6vw; }
+      .emploi-card { padding: 4vw 5vw; border-left-width: 1.5vw; }
+      .emploi-card .badge-en-cours { font-size: 2.5vw; padding: 1vw 3vw; }
+      .emploi-card .emploi-meta { font-size: 2.5vw; }
+      .emploi-card h3 { font-size: 4vw; }
+      .emploi-card .read-more { font-size: 3vw; }
+      .btn-outline-warning { font-size: 2.5vw; padding: 2vw 4vw; }
+      .lien-utile { height: auto; min-height: auto; }
+      .lien-utile .gouv-box { width: 100%; height: 50vw; min-width: auto; }
+      .lien-utile .small-box { height: 30vw; }
+      .vertical-title { font-size: 5vw !important; }
+      .newsletter-section h2 { font-size: 6vw; }
+      .newsletter-section p { font-size: 3.5vw; }
+      .newsletter-section input { font-size: 3vw; padding: 2vw 3vw; }
+      .newsletter-section button { font-size: 3vw; padding: 2vw 4vw; }
+      .footer-logo img { max-height: 10vw; }
+      .footer-bottom { flex-direction: column; gap: 2vw; }
+      .footer-bottom p { font-size: 2.5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white header">
+    <div class="container-fluid" style="padding: 0 6.97916vw;">
+      <a class="navbar-brand logo py-0" href="index.html">
+        <img src="public/assets/images/027610556098001690960111.png" alt="ASIN Bénin">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">ASIN</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="qui-sommes-nous.html">Présentation</a></li>
+              <li><a class="dropdown-item" href="mission-et-attributions.html">Mission et Attributions</a></li>
+              <li><a class="dropdown-item" href="mot-directeur.html">Mot du directeur général</a></li>
+              <li><a class="dropdown-item" href="gouvernance.html">Gouvernance et Organisation</a></li>
+              <li><a class="dropdown-item" href="organigramme.html">Organigramme</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="projets.html">Projets</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Publications</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="actualites.html">Actualités</a></li>
+              <li><a class="dropdown-item" href="documents.html">Documents</a></li>
+              <li><a class="dropdown-item" href="videos.html">Vidéos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Opportunités</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="emplois.html">Emplois</a></li>
+              <li><a class="dropdown-item" href="appels-offres.html">Marchés publics</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="evenements.html">Evènements</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item d-flex align-items-center ms-3 gap-2">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-flickr"></i></a>
+            <div class="search-btn ms-2"><i class="fas fa-search"></i><span>Recherche</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="emploi-hero">
+    <div class="container-fluid" style="padding: 0 6.97916vw;">
+      <div class="page-title">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="18" width="48" height="36" rx="4" fill="#81B0B1"/>
+          <rect x="14" y="24" width="36" height="24" rx="2" fill="#1F4878"/>
+          <path d="M24 24V16C24 13.7909 25.7909 12 28 12H36C38.2091 12 40 13.7909 40 16V24" stroke="#81B0B1" stroke-width="3" stroke-linecap="round"/>
+          <rect x="28" y="32" width="8" height="4" rx="2" fill="#81B0B1"/>
+        </svg>
+        <h1>Offres d'emploi</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Offers -->
+  <section class="bg-white" style="padding: 4vw 6.97916vw;">
+    <div class="container-fluid px-0">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <!-- Offer 1 -->
+          <div class="emploi-card">
+            <span class="badge-en-cours">En cours</span>
+            <div class="emploi-meta">
+              <span>04 juin 2026</span>
+              <span class="separator">|</span>
+              <span>ASIN</span>
+            </div>
+            <h3>Avis de recrutement - Project Management Officer (PMO)</h3>
+            <a href="#" class="read-more">+ En savoir plus</a>
+          </div>
+
+          <!-- Offer 2 -->
+          <div class="emploi-card">
+            <span class="badge-en-cours">En cours</span>
+            <div class="emploi-meta">
+              <span>04 juin 2026</span>
+              <span class="separator">|</span>
+              <span>ASIN</span>
+            </div>
+            <h3>Avis de recrutement - Ingénieur(e) Systèmes et Sécurité Sénior(e) environnement Microsoft (Hybride)</h3>
+            <a href="#" class="read-more">+ En savoir plus</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Liens utiles -->
+    <div class="lien-utile">
+      <div class="lien-utile-bg">
+        <img src="public/assets/images/utile.jpg" alt="">
+        <div class="overlay"></div>
+      </div>
+      <div class="position-relative h-100 d-flex align-items-center" style="padding: 3vw 6.97916vw;">
+        <div class="vertical-title">Liens utiles</div>
+        <div class="d-flex w-100 gap-0">
+          <a href="https://www.gouv.bj/" target="_blank" class="gouv-box d-flex align-items-center justify-content-center" style="background: rgba(255,255,255,.85);">
+            <img src="public/assets/images/gouv.png" alt="Gouvernement du Bénin">
+          </a>
+          <div class="d-flex flex-column flex-grow-1">
+            <div class="d-flex flex-grow-1">
+              <a href="https://numerique.gouv.bj/" target="_blank" class="small-box flex-grow-1" style="background: var(--warning);">
+                <img src="public/assets/images/numerique.png" alt="Numérique">
+              </a>
+              <a href="https://arcep.bj/" target="_blank" class="small-box" style="background: #1A588F; width: 16.06770835vw;">
+                <img src="public/assets/images/arcep.png" alt="ARCEP" style="filter: brightness(0) invert(1);">
+              </a>
+            </div>
+            <div class="d-flex flex-grow-1">
+              <a href="https://finances.gouv.bj/" target="_blank" class="small-box flex-grow-1" style="background: #1A588F;">
+                <img src="public/assets/images/finance.png" alt="Finances" style="filter: brightness(0) invert(1);">
+              </a>
+              <a href="https://apdp.bj/" target="_blank" class="small-box bg-white" style="width: 16.06770835vw;">
+                <img src="public/assets/images/apdp.png" alt="APDP">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-section" style="padding-left: calc(6.97916vw + 5vw);">
+      <div class="newsletter-bg">
+        <img src="public/assets/images/newsletter.jpg" alt="">
+        <div class="newsletter-mask-el"></div>
+      </div>
+      <div class="position-relative" style="padding: 4vw 0;">
+        <h2>La newsletter</h2>
+        <p>Abonnez-vous à notre newsletter afin de vous tenir au courant</p>
+        <form class="d-flex align-items-center gap-3 flex-wrap">
+          <input type="text" placeholder="Nom" class="form-control" style="max-width: 15vw;">
+          <input type="email" placeholder="Adresse email" class="form-control" style="max-width: 20vw;" required>
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Logo + Copyright -->
+    <div class="footer-logo">
+      <img src="public/assets/images/027610556098001690960111.png" alt="ASIN Bénin">
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Agence des Systèmes d'Information et du Numérique - 2023</p>
+      <p><a href="#">Mentions légales et gestions des cookies</a></p>
+    </div>
+
+    <!-- Flag -->
+    <div class="flag-bar">
+      <span class="green"></span>
+      <span class="yellow"></span>
+      <span class="red"></span>
+    </div>
+  </footer>
+
+    <script src="src/assets/vendor/bootstrap.bundle.min.js"></script>
+  <script>
+    (function() {
+      var nav = document.querySelector('.navbar');
+      if (!nav) return;
+      var items = nav.querySelectorAll('.nav-item.dropdown');
+      items.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          var menu = this.querySelector('.dropdown-menu');
+          if (menu) menu.classList.add('show');
+        });
+        item.addEventListener('mouseleave', function() {
+          var menu = this.querySelector('.dropdown-menu');
+          if (menu) menu.classList.remove('show');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
