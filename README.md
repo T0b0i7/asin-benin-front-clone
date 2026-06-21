@@ -75,22 +75,13 @@ Toutes les pages partagent le même header (navigation avec dropdowns au survol)
 ├── public/
 │   └── assets/
 │       ├── images/               # Images, logos, icônes (format web)
-│       ├── fonts/                # Polices Aquawax + Montserrat (TTF)
-│       └── ...
+│       └── fonts/                # Polices Aquawax + Montserrat (TTF)
 │
 ├── src/
 │   └── assets/
-│       ├── vendor/               # Bootstrap 5.3 minified
 │       ├── css/                  # Styles originaux OS + custom
-│       ├── js/                   # Scripts JS
-│       └── fonts/                # Polices locales
+│       └── js/                   # Scripts JS
 │
-├── data/                         # Pages scrapées (référence uniquement)
-│   └── <timestamp>/
-│       ├── index.html
-│       ├── *.css, *.png, *.ttf, ...
-│
-├── package.json                  # Dépendances (Bootstrap)
 ├── README.md                     # Ce fichier
 └── .gitignore
 ```
@@ -99,28 +90,29 @@ Toutes les pages partagent le même header (navigation avec dropdowns au survol)
 
 ## 🚀 Installation et utilisation
 
-### En local (serveur statique)
+**Aucune dépendance locale requise.** Bootstrap 5.3 est chargé via CDN.
 
 ```bash
-# Cloner le dépôt
+# 1. Cloner le dépôt
 git clone https://github.com/T0b0i7/asin-benin-front-clone.git
 
-# Ouvrir dans le navigateur
+# 2. Se déplacer dans le dossier
 cd asin-benin-front-clone
-start index.html
+
+# 3. Ouvrir index.html dans le navigateur
+start index.html       # Windows
+open index.html        # macOS
+xdg-open index.html    # Linux
 ```
 
-### Via un serveur de développement (recommandé)
+### Serveur de développement (optionnel)
 
 ```bash
 # Avec Python
 python -m http.server 8000
 
-# Avec Node.js (live-server)
-npx live-server
-
-# Avec PHP
-php -S localhost:8000
+# Avec Node.js
+npx serve
 ```
 
 Puis ouvrir [http://localhost:8000](http://localhost:8000).
@@ -146,11 +138,13 @@ Puis ouvrir [http://localhost:8000](http://localhost:8000).
 
 ---
 
-## 📦 Dépendances
+## 📦 Dépendances (CDN — aucune installation locale)
 
-- [Bootstrap 5.3](https://getbootstrap.com/) — Framework CSS
-- [Font Awesome 6](https://fontawesome.com/) — Bibliothèque d'icônes
-- Polices : Aquawax (Light, Medium, Black) + Montserrat (Light, Regular, Medium, SemiBold, Bold, ExtraBold)
+| Bibliothèque | Version | Liens CDN |
+|-------------|---------|-----------|
+| **Bootstrap** | 5.3.0 | CSS + JS (bundle) — [cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/) |
+| **Font Awesome** | 6.5.1 | Icônes — [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css) |
+| **Polices** | — | Aquawax (Light, Medium, Black) + Montserrat (Light, Regular, Medium, SemiBold, Bold, ExtraBold) — fichiers TTF locaux dans `public/assets/fonts/` |
 
 ---
 
